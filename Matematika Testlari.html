@@ -1,0 +1,349 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Matematika Testlari</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
+<style>
+/* Layout: kvadrat daftar fonida bitta ustun; mavzu kartalari to'r, test esa markazlashgan bitta savol kartasi */
+:root{
+  --bg:#f2f5fa; --surface:#ffffff; --ink:#16213a; --muted:#5b6784; --line:#d9e0ee;
+  --accent:#2457d6; --accent-ink:#ffffff; --accent-soft:#e6edfc;
+  --good:#14804a; --good-bg:#e0f4e8; --bad:#b42318; --bad-bg:#fde8e6; --grid:rgba(36,87,214,.07);
+  --font-display:"Space Grotesk","Segoe UI",system-ui,sans-serif;
+  --font-body:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1424; --surface:#161e33; --ink:#e8ecf7; --muted:#98a3c0; --line:#28334f;
+    --accent:#7da2ff; --accent-ink:#0e1424; --accent-soft:#1b2745;
+    --good:#5fd69b; --good-bg:#123a29; --bad:#ff8a80; --bad-bg:#3d1a1a; --grid:rgba(125,162,255,.08);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1424; --surface:#161e33; --ink:#e8ecf7; --muted:#98a3c0; --line:#28334f;
+  --accent:#7da2ff; --accent-ink:#0e1424; --accent-soft:#1b2745;
+  --good:#5fd69b; --good-bg:#123a29; --bad:#ff8a80; --bad-bg:#3d1a1a; --grid:rgba(125,162,255,.08);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  color:var(--ink); font-family:var(--font-body); font-size:16px; line-height:1.55;
+  padding-block:20px 48px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  min-height:100vh;
+}
+.wrap{max-width:960px;margin:0 auto}
+h1,h2,h3{font-family:var(--font-display);line-height:1.2;margin:0;text-wrap:balance}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1.1rem}
+.mark{display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--accent);color:var(--accent-ink);font-size:1.1rem}
+
+.intro{max-width:62ch;margin-bottom:28px}
+.intro h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin-bottom:10px}
+.intro p{margin:0;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .no{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.card h2{font-size:1.15rem}
+.card p{margin:0;color:var(--muted);font-size:.92rem;flex:1}
+.card .meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.88rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.badge{display:inline-block;padding:2px 9px;border-radius:99px;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.82rem}
+.btn{border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:8px;padding:10px 16px;font-weight:600}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.ghost:hover{background:var(--accent-soft);filter:none}
+
+.bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.bar .title{font-family:var(--font-display);font-weight:700;font-size:1.1rem;flex:1;min-width:0}
+.count{font-variant-numeric:tabular-nums;color:var(--muted);font-weight:500}
+.progress{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:20px}
+.progress i{display:block;height:100%;background:var(--accent);transition:width .25s}
+
+.q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(16px,4vw,28px)}
+.q .text{font-family:var(--font-display);font-weight:500;font-size:clamp(1.2rem,3.6vw,1.6rem);margin-bottom:20px;overflow-wrap:anywhere}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:560px){.opts{grid-template-columns:1fr}}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:12px 14px;min-width:0;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt .l{flex:none;display:grid;place-items:center;width:28px;height:28px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:.85rem}
+.opt span.v{overflow-wrap:anywhere}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--good);background:var(--good-bg)}
+.opt.right .l{background:var(--good);color:var(--bg)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-bg)}
+.opt.wrong .l{background:var(--bad);color:var(--bg)}
+.fb{margin-top:16px;padding:12px 14px;border-radius:8px;font-size:.95rem}
+.fb.ok{background:var(--good-bg);color:var(--good)}
+.fb.no{background:var(--bad-bg);color:var(--bad)}
+.fb b{display:block;margin-bottom:2px}
+.next{margin-top:16px;display:flex;justify-content:flex-end}
+
+details.formulas{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin-bottom:14px}
+details.formulas summary{cursor:pointer;font-weight:600;color:var(--accent)}
+details.formulas ul{margin:10px 0 0;padding-left:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:6px 20px;font-variant-numeric:tabular-nums}
+details.formulas li{overflow-wrap:anywhere}
+
+.res{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(18px,4vw,30px);text-align:center}
+.res .big{font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,10vw,4.2rem);color:var(--accent);font-variant-numeric:tabular-nums}
+.res p{margin:6px 0 18px;color:var(--muted)}
+.res .actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.review{margin-top:22px;display:grid;gap:10px}
+.review h3{font-size:1.05rem;margin-bottom:2px}
+.rev{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:8px;padding:12px 14px;font-size:.95rem;overflow-wrap:anywhere}
+.rev small{display:block;color:var(--muted);margin-top:4px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="mark" aria-hidden="true">∑</span><span>Matematika testlari</span></div>
+  </header>
+  <main id="app"></main>
+</div>
+
+<script>
+/* ---------- DATA ---------- */
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function ri(r,a,b){return a+Math.floor(r()*(b-a+1))}
+function pick(r,arr){return arr[Math.floor(r()*arr.length)]}
+function shuffle(arr,r){r=r||Math.random;for(var i=arr.length-1;i>0;i--){var j=Math.floor(r()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t}return arr}
+function fmt(n){return String(n).replace('-','−')}
+function sg(n){return n<0?'− '+(-n):'+ '+n}
+function make(r,text,ans,wrongs,exp){
+  var opts=[ans];
+  wrongs.forEach(function(w){if(opts.indexOf(w)<0&&opts.length<4&&isFinite(w))opts.push(w)});
+  var d=[1,-1,2,-2,10,-10,3,-3,5,-5,100,-100,7,-7];
+  for(var k=0;opts.length<4&&k<d.length;k++){var c=ans+d[k];if(opts.indexOf(c)<0&&!(ans>=0&&c<0))opts.push(c)}
+  var correct=ans;shuffle(opts,r);
+  return {q:text,o:opts.map(fmt),a:opts.indexOf(correct),e:exp||''};
+}
+function build(gen,n,seed){
+  var r=rng(seed),seen={},out=[],tries=0;
+  while(out.length<n&&tries<5000){tries++;var q=gen(out.length,r);if(!q||seen[q.q])continue;seen[q.q]=1;out.push(q)}
+  return out;
+}
+
+/* 1. Qisqa ko'paytirish formulalari (30 ta, qo'lda tuzilgan shablonlar) */
+function buildQKF(){
+  var r=rng(2026),L=[];
+  [21,31,41,52,49,69].forEach(function(n){
+    var d=n%10,b=n-d;
+    L.push(make(r,'Hisoblang: '+n+'²',n*n,[b*b+d*d,b*b+2*b*d,n*2],
+      '('+b+(d?' + '+d:'')+')² = '+b+'² + 2·'+b+'·'+d+' + '+d+'² = '+n*n));
+  });
+  [[48,52],[97,103],[195,205],[73,67],[88,92]].forEach(function(p){
+    var m=(p[0]+p[1])/2,k=Math.abs(p[0]-p[1])/2;
+    L.push(make(r,'Hisoblang: '+p[0]+' · '+p[1],p[0]*p[1],[m*m+k*k,m*m-k,m*m],
+      'a² − b² = (a − b)(a + b): '+m+'² − '+k+'² = '+p[0]*p[1]));
+  });
+  [[3,5],[7,2],[6,4],[9,3]].forEach(function(p){
+    var a=p[0],b=p[1];
+    L.push(make(r,'a = '+a+', b = '+b+' bo\'lsa, (a + b)² − (a − b)² ning qiymatini toping.',4*a*b,[2*a*b,4*(a+b),a*a+b*b],
+      '(a + b)² − (a − b)² = 4ab = 4·'+a+'·'+b+' = '+4*a*b));
+  });
+  [[5,6],[7,10],[8,12]].forEach(function(p){
+    var s=p[0],q=p[1];
+    L.push(make(r,'a + b = '+s+', ab = '+q+' bo\'lsa, a² + b² nechaga teng?',s*s-2*q,[s*s-q,s*s+2*q,s*s],
+      'a² + b² = (a + b)² − 2ab = '+s+'² − 2·'+q+' = '+(s*s-2*q)));
+  });
+  [[9,4],[12,3],[15,2]].forEach(function(p){
+    L.push(make(r,'a + b = '+p[0]+', a − b = '+p[1]+' bo\'lsa, a² − b² ni toping.',p[0]*p[1],[p[0]+p[1],p[0]*p[1]+p[1],p[0]*p[0]-p[1]],
+      'a² − b² = (a + b)(a − b) = '+p[0]+'·'+p[1]+' = '+p[0]*p[1]));
+  });
+  [[2,3],[3,4],[5,2]].forEach(function(p){
+    L.push(make(r,'('+p[0]+'x + '+p[1]+')² ifodani ochganda x oldidagi koeffitsientni toping.',2*p[0]*p[1],[p[0]*p[1],p[0]*p[0]+p[1]*p[1],2*(p[0]+p[1])],
+      'O\'rtadagi had 2·'+p[0]+'x·'+p[1]+' = '+2*p[0]*p[1]+'x'));
+  });
+  [11,21].forEach(function(n){
+    var b=n-1;
+    L.push(make(r,'Hisoblang: '+n+'³',n*n*n,[b*b*b+1,n*n*3,n*n*n+n],
+      '('+b+' + 1)³ = '+b+'³ + 3·'+b+'²·1 + 3·'+b+'·1 + 1 = '+n*n*n));
+  });
+  [[5,6],[4,3]].forEach(function(p){
+    var s=p[0],q=p[1];
+    L.push(make(r,'a + b = '+s+', ab = '+q+' bo\'lsa, a³ + b³ ni toping.',s*s*s-3*q*s,[s*s*s-3*q,s*s*s+3*q*s,s*s*s-q*s],
+      'a³ + b³ = (a + b)³ − 3ab(a + b) = '+s*s*s+' − '+3*q*s+' = '+(s*s*s-3*q*s)));
+  });
+  [3,5].forEach(function(k){
+    L.push(make(r,'x + 1/x = '+k+' bo\'lsa, x² + 1/x² nechaga teng?',k*k-2,[k*k,k*k+2,2*k],
+      '(x + 1/x)² = x² + 2 + 1/x², demak x² + 1/x² = '+k+'² − 2 = '+(k*k-2)));
+  });
+  return L;
+}
+
+/* 2. Darajalar va ildizlar */
+function buildDar(){
+  return build(function(i,r){
+    var k=i%5,b,m,n,t;
+    if(k===0){b=pick(r,[2,3,5]);m=ri(r,1,3);n=ri(r,1,3);
+      return make(r,'Hisoblang: '+b+'<sup>'+m+'</sup> · '+b+'<sup>'+n+'</sup>',Math.pow(b,m+n),[Math.pow(b,m*n),Math.pow(b,m)+Math.pow(b,n),b*(m+n)],
+        'Ko\'paytirishda ko\'rsatkichlar qo\'shiladi: '+b+'<sup>'+(m+n)+'</sup>');}
+    if(k===1){b=pick(r,[2,3]);m=ri(r,2,4);n=ri(r,2,3);
+      return make(r,'Hisoblang: ('+b+'<sup>'+m+'</sup>)<sup>'+n+'</sup>',Math.pow(b,m*n),[Math.pow(b,m+n),Math.pow(b,m)*n,Math.pow(b,m)+n],
+        'Darajaning darajasida ko\'rsatkichlar ko\'paytiriladi: '+b+'<sup>'+(m*n)+'</sup>');}
+    if(k===2){b=pick(r,[2,3,5]);n=ri(r,2,3);m=n+ri(r,2,3);
+      return make(r,'Hisoblang: '+b+'<sup>'+m+'</sup> : '+b+'<sup>'+n+'</sup>',Math.pow(b,m-n),[Math.pow(b,m+n),Math.pow(b,m)/n|0,b*(m-n)],
+        'Bo\'lishda ko\'rsatkichlar ayiriladi: '+b+'<sup>'+(m-n)+'</sup>');}
+    if(k===3){t=ri(r,2,15);
+      if(r()<.5)return make(r,'Hisoblang: √'+t*t,t,[t+1,t-1,t*2],t+'² = '+t*t+', demak ildiz '+t);
+      t=ri(r,2,9);return make(r,'Hisoblang: ∛'+t*t*t,t,[t+1,t-1,t*3],t+'³ = '+t*t*t+', demak ildiz '+t);}
+    b=ri(r,2,4);n=ri(r,3,5);var v=Math.pow(-b,n);
+    return make(r,'Hisoblang: (−'+b+')<sup>'+n+'</sup>',v,[-v,b*n,-b*n],'Manfiy sonning toq darajasi manfiy, juft darajasi musbat bo\'ladi.');
+  },30,101);
+}
+
+/* 3. Chiziqli tenglamalar */
+function buildChiz(){
+  return build(function(i,r){
+    var k=i%3,x=ri(r,-8,15),a=ri(r,2,9),b=ri(r,1,20),c,txt,e;
+    if(k===0){c=a*x+b;txt=a+'x '+sg(b)+' = '+fmt(c);e=a+'x = '+fmt(c-b)+', x = '+fmt(x);}
+    else if(k===1){c=a*(x+b);txt=a+'(x '+sg(b)+') = '+fmt(c);e='x '+sg(b)+' = '+fmt(x+b)+', x = '+fmt(x);}
+    else{var t=ri(r,-6,10);x=a*t;c=t+b;txt='x/'+a+' '+sg(b)+' = '+fmt(c);e='x/'+a+' = '+fmt(t)+', x = '+fmt(x);}
+    return make(r,'Tenglamani yeching: '+txt,x,[x+1,x-1,-x,x+b],e);
+  },30,202);
+}
+
+/* 4. Kvadrat tenglamalar */
+function buildKv(){
+  return build(function(i,r){
+    var k=i%4,r1,r2,B,C;
+    do{r1=ri(r,-6,8);r2=ri(r,-6,8);B=-(r1+r2);C=r1*r2}while(r1===r2||B===0||C===0||Math.abs(B)===1);
+    var eq='x² '+(B<0?'−':'+')+' '+(Math.abs(B)===1?'':Math.abs(B))+'x '+sg(C)+' = 0';
+    var mx=Math.max(r1,r2),mn=Math.min(r1,r2);
+    if(k===0)return make(r,eq+' tenglamaning katta ildizini toping.',mx,[mn,-mx,r1+r2,mx+1],'Ildizlar '+mn+' va '+mx+' (Vyet teoremasi: yig\'indi '+(r1+r2)+', ko\'paytma '+C+').');
+    if(k===1)return make(r,eq+' tenglama ildizlarining yig\'indini toping.',r1+r2,[B,C,-C,r1*r2+r1+r2],'Vyet teoremasi: x₁ + x₂ = −b = '+(r1+r2));
+    if(k===2)return make(r,eq+' tenglama ildizlarining ko\'paytmasini toping.',C,[-C,B,r1+r2,C+1],'Vyet teoremasi: x₁ · x₂ = c = '+C);
+    var D=B*B-4*C;return make(r,eq+' tenglamaning diskriminantini toping.',D,[B*B+4*C,B*B-C,B*B-2*C],'D = b² − 4ac = '+B*B+' − '+4*C+' = '+D);
+  },30,303);
+}
+
+/* 5. Foizlar */
+function buildFoiz(){
+  return build(function(i,r){
+    var k=i%3,p=pick(r,[5,10,15,20,25,30,40,50,60,75]),n=ri(r,2,50)*20;
+    if(k===0)return make(r,n+' ning '+p+'% i nechaga teng?',n*p/100,[n*p,n/p|0,n-n*p/100],n+' · '+p+' / 100 = '+n*p/100);
+    if(k===1)return make(r,'Mahsulot narxi '+n+' so\'m edi. U '+p+'% ga oshirildi. Yangi narx qancha?',n+n*p/100,[n-n*p/100,n*p/100,n+p],n+' + '+n*p/100+' = '+(n+n*p/100));
+    var y=n*p/100;return make(r,'Qaysi sonning '+p+'% i '+y+' ga teng?',n,[y*p,y+p,y*100/(100-p)|0],'Son = '+y+' · 100 / '+p+' = '+n);
+  },30,404);
+}
+
+/* 6. Arifmetik progressiya */
+function buildAP(){
+  return build(function(i,r){
+    var k=i%3,a1=ri(r,-5,15),d=ri(r,2,7),n,an;
+    if(k===0){n=ri(r,6,20);an=a1+(n-1)*d;
+      return make(r,'Arifmetik progressiyada a<sub>1</sub> = '+fmt(a1)+', d = '+d+'. a<sub>'+n+'</sub> ni toping.',an,[a1+n*d,a1+(n-2)*d,a1*d],'a<sub>n</sub> = a<sub>1</sub> + (n − 1)d = '+fmt(a1)+' + '+(n-1)+'·'+d+' = '+fmt(an));}
+    if(k===1){n=ri(r,5,12);an=a1+(n-1)*d;var S=n*(2*a1+(n-1)*d)/2;
+      return make(r,'Arifmetik progressiyada a<sub>1</sub> = '+fmt(a1)+', d = '+d+'. Dastlabki '+n+' ta hadining yig\'indi S<sub>'+n+'</sub> ni toping.',S,[n*(a1+an),S+d,S-n,an],'S<sub>n</sub> = n(a<sub>1</sub> + a<sub>n</sub>)/2 = '+n+'·('+fmt(a1)+' + '+fmt(an)+')/2 = '+fmt(S));}
+    var m=ri(r,4,10),am=a1+(m-1)*d;
+    return make(r,'Arifmetik progressiyada a<sub>1</sub> = '+fmt(a1)+', a<sub>'+m+'</sub> = '+fmt(am)+'. Ayirmasi d ni toping.',d,[d+1,d-1,am-a1],'d = (a<sub>'+m+'</sub> − a<sub>1</sub>)/'+(m-1)+' = '+(am-a1)+'/'+(m-1)+' = '+d);
+  },30,505);
+}
+
+var TOPICS=[
+  {id:'qkf',name:'Qisqa ko\'paytirish formulalari',desc:'Kvadrat va kub formulalari, sonlarni tez hisoblash, ifodalarning qiymatini topish.',
+   formulas:['(a + b)² = a² + 2ab + b²','(a − b)² = a² − 2ab + b²','a² − b² = (a − b)(a + b)','(a + b)³ = a³ + 3a²b + 3ab² + b³','(a − b)³ = a³ − 3a²b + 3ab² − b³','a³ + b³ = (a + b)(a² − ab + b²)','a³ − b³ = (a − b)(a² + ab + b²)'],build:buildQKF},
+  {id:'dar',name:'Darajalar va ildizlar',desc:'Daraja xossalari, daraja ko\'rsatkichlari ustida amallar, kvadrat va kub ildiz.',formulas:['aᵐ · aⁿ = aᵐ⁺ⁿ','aᵐ : aⁿ = aᵐ⁻ⁿ','(aᵐ)ⁿ = aᵐⁿ','a⁰ = 1 (a ≠ 0)'],build:buildDar},
+  {id:'chiz',name:'Chiziqli tenglamalar',desc:'Bir noma\'lumli chiziqli tenglamalarni yechish, qavs ochish va kasrli ko\'rinishlar.',build:buildChiz},
+  {id:'kv',name:'Kvadrat tenglamalar',desc:'Ildizlar, diskriminant va Vyet teoremasi.',formulas:['D = b² − 4ac','x₁ + x₂ = −b/a','x₁ · x₂ = c/a'],build:buildKv},
+  {id:'foiz',name:'Foizlar',desc:'Sonning foizini topish, foizga oshirish va foiz bo\'yicha sonni topish.',build:buildFoiz},
+  {id:'ap',name:'Arifmetik progressiya',desc:'n-had, dastlabki n ta had yig\'indisi va progressiya ayirmasi.',formulas:['aₙ = a₁ + (n − 1)d','Sₙ = n(a₁ + aₙ)/2','Sₙ = n(2a₁ + (n − 1)d)/2'],build:buildAP}
+];
+TOPICS.forEach(function(t){t.questions=t.build()});
+
+/*UI*/
+var app=document.getElementById('app');
+var state=null;
+function getBest(id){try{var v=localStorage.getItem('mt-best-'+id);return v===null?null:+v}catch(e){return null}}
+function setBest(id,v){try{var b=getBest(id);if(b===null||v>b)localStorage.setItem('mt-best-'+id,String(v))}catch(e){}}
+
+function home(){
+  state=null;
+  var h='<section class="intro"><h1>Mavzuni tanlang va testni boshlang</h1><p>Har bir mavzuda 30 tadan misol bor. Javob berganingizdan keyin yechim ko\'rsatiladi, oxirida xatolar ro\'yxati chiqadi.</p></section><div class="grid">';
+  TOPICS.forEach(function(t,i){
+    var b=getBest(t.id);
+    h+='<article class="card"><span class="no">'+(i+1)+'-mavzu</span><h2>'+t.name+'</h2><p>'+t.desc+'</p>'+
+       '<div class="meta"><span>'+t.questions.length+' ta misol</span>'+(b!==null?'<span class="badge">Eng yaxshi: '+b+'/'+t.questions.length+'</span>':'<span>Hali yechilmagan</span>')+'</div>'+
+       '<button class="btn" data-start="'+t.id+'">Testni boshlash</button></article>';
+  });
+  h+='</div>';
+  app.innerHTML=h;
+  window.scrollTo(0,0);
+}
+
+function start(id){
+  var t=TOPICS.filter(function(x){return x.id===id})[0];
+  state={t:t,qs:shuffle(t.questions.slice()),i:0,score:0,wrong:[],locked:false};
+  question();
+}
+
+function question(){
+  var s=state,q=s.qs[s.i],L=['A','B','C','D'],n=s.qs.length;
+  var h='<div class="bar"><button class="btn ghost" data-home>← Mavzular</button><div class="title">'+s.t.name+'</div><div class="count">'+(s.i+1)+' / '+n+'</div></div>';
+  h+='<div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="'+n+'" aria-valuenow="'+s.i+'"><i style="width:'+(s.i/n*100)+'%"></i></div>';
+  if(s.t.formulas){
+    h+='<details class="formulas"><summary>Formulalar</summary><ul>'+s.t.formulas.map(function(f){return '<li>'+f+'</li>'}).join('')+'</ul></details>';
+  }
+  h+='<div class="q"><div class="text">'+q.q+'</div><div class="opts">';
+  q.o.forEach(function(o,i){h+='<button class="opt" data-opt="'+i+'"><span class="l">'+L[i]+'</span><span class="v">'+o+'</span></button>'});
+  h+='</div><div id="fb"></div><div class="next" id="nx"></div></div>';
+  app.innerHTML=h;
+  s.locked=false;
+  window.scrollTo(0,0);
+}
+
+function choose(i){
+  var s=state;if(!s||s.locked)return;s.locked=true;
+  var q=s.qs[s.i],ok=i===q.a;
+  var btns=app.querySelectorAll('.opt');
+  btns.forEach(function(b,k){b.disabled=true;if(k===q.a)b.classList.add('right');else if(k===i)b.classList.add('wrong')});
+  if(ok)s.score++;else s.wrong.push({q:q.q,mine:q.o[i],right:q.o[q.a],e:q.e});
+  document.getElementById('fb').innerHTML='<div class="fb '+(ok?'ok':'no')+'" role="status"><b>'+(ok?'To\'g\'ri!':'Noto\'g\'ri. To\'g\'ri javob: '+q.o[q.a])+'</b>'+(q.e?'<span>'+q.e+'</span>':'')+'</div>';
+  var last=s.i===s.qs.length-1;
+  document.getElementById('nx').innerHTML='<button class="btn" data-next autofocus>'+(last?'Natijani ko\'rish':'Keyingi misol →')+'</button>';
+  var nb=app.querySelector('[data-next]');if(nb)nb.focus({preventScroll:true});
+}
+
+function next(){
+  var s=state;if(!s||!s.locked)return;
+  if(s.i<s.qs.length-1){s.i++;question()}else result();
+}
+
+function result(){
+  var s=state,n=s.qs.length,p=Math.round(s.score/n*100);
+  setBest(s.t.id,s.score);
+  var msg=p>=90?'Juda yaxshi natija!':p>=70?'Yaxshi, yana biroz mashq qiling.':p>=50?'O\'rtacha. Formulalarni qayta ko\'rib chiqing.':'Mavzuni qaytadan takrorlab, testni yana yeching.';
+  var h='<div class="res"><div class="count">'+s.t.name+'</div><div class="big">'+s.score+' / '+n+'</div><p>'+p+'% to\'g\'ri. '+msg+'</p><div class="actions"><button class="btn" data-start="'+s.t.id+'">Qayta yechish</button><button class="btn ghost" data-home>Boshqa mavzu</button></div></div>';
+  if(s.wrong.length){
+    h+='<div class="review"><h3>Xato qilingan misollar ('+s.wrong.length+')</h3>';
+    s.wrong.forEach(function(w){h+='<div class="rev"><div>'+w.q+'</div><small>Sizning javobingiz: '+w.mine+' · To\'g\'ri javob: '+w.right+(w.e?'<br>'+w.e:'')+'</small></div>'});
+    h+='</div>';
+  }
+  app.innerHTML=h;
+  window.scrollTo(0,0);
+}
+
+app.addEventListener('click',function(e){
+  var el=e.target.closest('[data-start],[data-home],[data-opt],[data-next]');if(!el)return;
+  if(el.hasAttribute('data-start'))start(el.getAttribute('data-start'));
+  else if(el.hasAttribute('data-home'))home();
+  else if(el.hasAttribute('data-opt'))choose(+el.getAttribute('data-opt'));
+  else if(el.hasAttribute('data-next'))next();
+});
+document.addEventListener('keydown',function(e){
+  if(!state)return;
+  if(e.key>='1'&&e.key<='4'&&!state.locked){var b=app.querySelectorAll('.opt')[+e.key-1];if(b)choose(+e.key-1)}
+  else if(e.key==='Enter'&&state.locked&&document.activeElement.tagName!=='BUTTON'){next()}
+});
+home();
+</script>
+
+</body></html>
